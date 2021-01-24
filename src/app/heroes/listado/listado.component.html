@@ -1,0 +1,20 @@
+<h1>Listado de heroes</h1>
+<hr>
+<div *ngIf="heroeBorrado; else noBorrado">
+    <h3>Heroe Borrado:::
+        <small>{{heroeBorrado.toUpperCase()}}</small>
+    </h3>
+</div>
+<!-- referencia local noBorrado, con template -->
+<ng-template #noBorrado>
+    <h3>
+        No ha borrado nada.
+    </h3>
+</ng-template>
+<button class="mt-5" (click)="borrarHeroe()">Borrar</button>
+
+<ul>
+    <li *ngFor="let heroe of heroes; let index= index">
+        {{(index+1).toString()}} - {{heroe.toLowerCase()}}
+    </li>
+</ul>
